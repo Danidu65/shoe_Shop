@@ -15,7 +15,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "employee")
-public class Employee {
+public class EmployeeEntity {
     @Id
     private String employeeId;
     private String employeeName;

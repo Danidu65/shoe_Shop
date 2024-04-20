@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Table(name = "inventory")
 //@Entity
-public class Inventory {
+public class InventoryEntity {
     @Enumerated(EnumType.STRING)
     private Size size;
     private Integer qty;

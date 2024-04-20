@@ -14,7 +14,7 @@ import java.util.Date;
 @Data
 @Table(name = "customer")
 @Entity
-public class Customer {
+public class CustomerEntity {
     @Id
     private String customerId;
     private String customerName;

@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @Table(name = "sales")
-public class Sales {
+public class SalesEntity {
     @Id
     private String oderId;
     private int itemQTY;

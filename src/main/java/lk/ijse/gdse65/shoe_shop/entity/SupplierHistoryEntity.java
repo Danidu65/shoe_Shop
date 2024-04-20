@@ -14,7 +14,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "supplier-history")
-public class SupplierHistory{
+public class SupplierHistoryEntity {
     @Id
     private String supplierHistoryId;
     private Date suppliedDate;
