@@ -23,6 +23,11 @@ public class CustomerServiceIMPL implements CustomerService {
     public void deleteCustomer(String customerId) {
 
     }
+    @Override
+    public CustomerDTO getByCode(String code) {
+
+        return null;
+    }
 
     @Override
     public CustomerDTO getSelectedCustomer(String customerId) {

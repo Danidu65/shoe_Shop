@@ -1,8 +1,6 @@
 package lk.ijse.gdse65.shoe_shop.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,11 +13,11 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "alert")
-public class AlertEntity {
+public class AlertEntity implements SuperEntity {
     @Id
     private String alertId;
-    private Date alertDate;
-    private Time alertTime;
-    private String message;
+    private String Message;
+    @Temporal(TemporalType.DATE)
+    private Date date;
 }
 

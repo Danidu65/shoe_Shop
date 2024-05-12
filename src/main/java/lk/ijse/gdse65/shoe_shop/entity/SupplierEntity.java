@@ -6,25 +6,34 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Table(name = "supplier")
 @Entity
-public class SupplierEntity {
+public class SupplierEntity implements SuperEntity{
     @Id
     private String supplierId;
     private String supplierName;
+
     @Enumerated(EnumType.STRING)
-    private String contactNumber;
-    private String lanLineNumber;
     private SupplierCategory supplierCategory;
+
+    private String mobileNo;
+    private String landLineNo;
+
     @Column(unique = true)
     private String email;
-    private String buildingNoOrName;
+
+    private String addressNoOrName;
     private String addressLane;
-    private String addressCity;
     private String addressState;
+    private String addressCity;
     private String postalCode;
     private String country;
+
+    @OneToMany(mappedBy = "supplier" , cascade = CascadeType.ALL , fetch = FetchType.LAZY)
+    private List<ItemEntity> itemList;
 }
