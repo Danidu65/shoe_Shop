@@ -1,7 +1,6 @@
 package lk.ijse.gdse65.shoe_shop.entity;
 
 import jakarta.persistence.*;
-import lk.ijse.gdse65.shoe_shop.dto.ItemImage;
 import lk.ijse.gdse65.shoe_shop.entity.enums.Color;
 import lk.ijse.gdse65.shoe_shop.entity.enums.Size;
 import lk.ijse.gdse65.shoe_shop.entity.enums.StockStatus;
@@ -14,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 //@IdClass(StockId.class)
 @Entity
-public class StockEntity {
+public class Stock {
     @Id
     private Size size;
     private int qty;
@@ -29,9 +28,9 @@ public class StockEntity {
 
     @ManyToOne
     @Id
-    private ItemEntity item;
+    private Item item;
 
     @ManyToOne
-    private ItemImageEntity itemImage;
+    private ItemImage itemImage;
 
 }

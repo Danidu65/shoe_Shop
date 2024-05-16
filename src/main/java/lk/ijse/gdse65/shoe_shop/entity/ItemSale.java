@@ -12,16 +12,16 @@ import lombok.NoArgsConstructor;
 @Data
 @Table(name = "item_sale")
 @Entity
-public class ItemSaleEntity {
+public class ItemSale {
     @Id
     private String itemSaleId;
 
     @ManyToOne
-    private SalesEntity sale;
+    private Sales sale;
     @ManyToOne
-    private ItemEntity item;
+    private Item item;
     @OneToOne(mappedBy = "itemSale")
-    private RefundEntity refund;
+    private Refund refund;
 
 
     @Enumerated(EnumType.STRING)

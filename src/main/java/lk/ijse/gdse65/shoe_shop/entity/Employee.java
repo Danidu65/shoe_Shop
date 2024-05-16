@@ -16,7 +16,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "employee")
-public class EmployeeEntity implements SuperEntity{
+public class Employee implements SuperEntity{
     @Id
     private String employeeId;
     private String employeeName;
@@ -54,9 +54,9 @@ public class EmployeeEntity implements SuperEntity{
     private String emergencyContactNumber;
 
     @OneToMany(mappedBy = "employee" , cascade = CascadeType.ALL , fetch = FetchType.LAZY)
-    private List<SalesEntity> saleList;
+    private List<Sales> saleList;
 
     @OneToMany(mappedBy = "employee" , cascade = CascadeType.ALL , fetch = FetchType.LAZY)
-    private List<RefundEntity> refundList;
+    private List<Refund> refundList;
 
 }

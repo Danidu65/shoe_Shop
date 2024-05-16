@@ -12,8 +12,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Table(name = "inventory")
-//@Entity
-public class InventoryEntity implements SuperEntity{
+@Entity
+public class Inventory implements SuperEntity{
     @Enumerated(EnumType.STRING)
     private Size size;
     private Integer qty;
@@ -22,4 +22,14 @@ public class InventoryEntity implements SuperEntity{
     private StockStatus status;
     @Enumerated(EnumType.STRING)
     private Color color;
+    @Id
+    private Long id;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }

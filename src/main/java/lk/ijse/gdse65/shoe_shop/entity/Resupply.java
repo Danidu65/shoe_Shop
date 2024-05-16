@@ -5,19 +5,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Time;
 import java.util.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "alert")
-public class AlertEntity implements SuperEntity {
+public class Resupply {
     @Id
-    private String alertId;
-    private String Message;
+    private String resupplyId;
     @Temporal(TemporalType.DATE)
     private Date date;
-}
+    private double totalValue;
+    private int totalQty;
 
+    @OneToMany(mappedBy = "resupply" , cascade = CascadeType.ALL , fetch = FetchType.EAGER)
+    private List<ItemResupply> itemResupplyList;
+
+}

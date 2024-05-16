@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "sales")
-public class SalesEntity implements SuperEntity{
+public class Sales implements SuperEntity{
     @Id
     private String oId;
     private String itemQty;
@@ -28,11 +28,11 @@ public class SalesEntity implements SuperEntity{
     private int points;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private CustomerEntity customer;
+    private Customer customer;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private EmployeeEntity employee;
+    private Employee employee;
 
     @OneToMany(mappedBy = "sale" , cascade = CascadeType.ALL , fetch = FetchType.EAGER)
-    private List<ItemSaleEntity> itemSaleList;
+    private List<ItemSale> itemSaleList;
 }

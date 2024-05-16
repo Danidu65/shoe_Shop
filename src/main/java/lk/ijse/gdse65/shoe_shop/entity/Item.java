@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 @Table(name = "item")
 @Entity
-public class ItemEntity implements SuperEntity{
+public class Item implements SuperEntity{
     @Id
     private String iCode;
     private String description;
@@ -21,15 +21,15 @@ public class ItemEntity implements SuperEntity{
     private double priceSell;
 
     @OneToMany(mappedBy = "item" , cascade = CascadeType.ALL , fetch = FetchType.LAZY)
-    private List<ItemSaleEntity> itemSaleList;
+    private List<ItemSale> itemSaleList;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private SupplierEntity supplier;
+    private Supplier supplier;
 
     @OneToMany(mappedBy = "item" , cascade = CascadeType.ALL , fetch = FetchType.LAZY)
-    private List<StockEntity> stockList;
+    private List<Stock> stockList;
 
     @OneToMany(mappedBy = "item" , cascade = CascadeType.ALL , fetch = FetchType.LAZY)
-    private List<ItemResupplyEntity> itemResupplyList;
+    private List<ItemResupply> itemResupplyList;
 
 }

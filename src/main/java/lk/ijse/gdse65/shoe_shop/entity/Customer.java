@@ -16,7 +16,7 @@ import java.util.List;
 @Data
 @Table(name = "customer")
 @Entity
-public class CustomerEntity implements SuperEntity{
+public class Customer implements SuperEntity{
     @Id
     private String cId;
     @JsonProperty("cName")
@@ -45,5 +45,5 @@ public class CustomerEntity implements SuperEntity{
     private String postalCode;
 
     @OneToMany(mappedBy = "customer" , cascade = CascadeType.ALL , fetch = FetchType.LAZY)
-    private List<SalesEntity> saleList;
+    private List<Sales> saleList;
 }

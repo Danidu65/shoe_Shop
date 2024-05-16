@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 @Table(name = "supplier")
 @Entity
-public class SupplierEntity implements SuperEntity{
+public class Supplier implements SuperEntity{
     @Id
     private String supplierId;
     private String supplierName;
@@ -35,5 +35,5 @@ public class SupplierEntity implements SuperEntity{
     private String country;
 
     @OneToMany(mappedBy = "supplier" , cascade = CascadeType.ALL , fetch = FetchType.LAZY)
-    private List<ItemEntity> itemList;
+    private List<Item> itemList;
 }

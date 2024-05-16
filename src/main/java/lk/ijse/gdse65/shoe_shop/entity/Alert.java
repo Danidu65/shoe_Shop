@@ -6,21 +6,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
-public class ResupplyEntity {
+@Table(name = "alert")
+public class Alert implements SuperEntity {
     @Id
-    private String resupplyId;
+    private String alertId;
+    private String Message;
     @Temporal(TemporalType.DATE)
     private Date date;
-    private double totalValue;
-    private int totalQty;
-
-    @OneToMany(mappedBy = "resupply" , cascade = CascadeType.ALL , fetch = FetchType.EAGER)
-    private List<ItemResupplyEntity> itemResupplyList;
-
 }
+

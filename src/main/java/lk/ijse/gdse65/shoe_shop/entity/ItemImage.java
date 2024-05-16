@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "item-images")
-public class ItemImageEntity implements SuperEntity{
+public class ItemImage implements SuperEntity{
     @Id
     private String imgId;
 
@@ -20,5 +20,5 @@ public class ItemImageEntity implements SuperEntity{
     private String img;
 
     @OneToMany(mappedBy = "itemImage" , cascade = CascadeType.ALL , fetch = FetchType.LAZY)
-    private List<StockEntity> stockList;
+    private List<Stock> stockList;
 }

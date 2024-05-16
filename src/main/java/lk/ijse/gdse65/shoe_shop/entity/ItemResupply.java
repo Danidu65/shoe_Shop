@@ -15,14 +15,14 @@ import lombok.NoArgsConstructor;
 @Data
 @Table(name = "item_resupply")
 @Entity
-public class ItemResupplyEntity {
+public class ItemResupply {
     @ManyToOne
     @Id
-    private ItemEntity item;
+    private Item item;
 
     @ManyToOne
     @Id
-    private ResupplyEntity resupply;
+    private Resupply resupply;
 
     @Id
     private Size size;

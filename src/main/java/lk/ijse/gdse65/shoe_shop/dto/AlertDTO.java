@@ -1,5 +1,8 @@
 package lk.ijse.gdse65.shoe_shop.dto;
 
+import jakarta.persistence.Id;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +15,6 @@ import java.util.Date;
 @Data
 public class AlertDTO {
     private String alertId;
-    private Date alertDate;
-    private Time alertTime;
-    private String message;
+    private String Message;
+    private Date date;
 }

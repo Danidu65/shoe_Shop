@@ -10,7 +10,8 @@ import java.util.Date;
 @NoArgsConstructor
 @Data
 @Table(name = "refund")
-public class RefundEntity {
+@Entity
+public class Refund {
     @Id
     private String rId;
     private double value;
@@ -20,8 +21,8 @@ public class RefundEntity {
     private int qty;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private EmployeeEntity employee;
+    private Employee employee;
 
     @OneToOne
-    private ItemSaleEntity itemSale;
+    private ItemSale itemSale;
 }
