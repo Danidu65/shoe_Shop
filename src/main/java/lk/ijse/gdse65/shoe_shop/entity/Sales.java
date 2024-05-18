@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "sales")
-public class Sales implements SuperEntity{
+public class Sales {
     @Id
     private String oId;
     private String itemQty;

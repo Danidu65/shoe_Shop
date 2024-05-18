@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 @Table(name = "item")
 @Entity
-public class Item implements SuperEntity{
+public class Item{
     @Id
     private String iCode;
     private String description;

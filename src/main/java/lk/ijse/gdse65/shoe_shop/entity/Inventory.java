@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Table(name = "inventory")
 @Entity
-public class Inventory implements SuperEntity{
+public class Inventory {
     @Enumerated(EnumType.STRING)
     private Size size;
     private Integer qty;

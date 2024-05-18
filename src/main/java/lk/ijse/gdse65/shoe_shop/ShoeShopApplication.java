@@ -15,6 +15,5 @@ public class ShoeShopApplication {
     @Bean
     ModelMapper modelMapper() {
         return new ModelMapper();
-
     }
 }

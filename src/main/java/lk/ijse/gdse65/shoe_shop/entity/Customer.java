@@ -16,11 +16,11 @@ import java.util.List;
 @Data
 @Table(name = "customer")
 @Entity
-public class Customer implements SuperEntity{
+public class Customer{
     @Id
-    private String cId;
+    private String customerId;
     @JsonProperty("cName")
-    private String cName;
+    private String customerName;
 
     @Enumerated(EnumType.STRING)
     private Gender gender;

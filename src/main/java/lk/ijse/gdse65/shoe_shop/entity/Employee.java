@@ -6,10 +6,11 @@ import lk.ijse.gdse65.shoe_shop.entity.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,43 +21,59 @@ public class Employee implements SuperEntity{
     @Id
     private String employeeId;
     private String employeeName;
-
-    @Column(columnDefinition = "LONGTEXT")
+    @Column(columnDefinition="LONGTEXT")
     private String profilePic;
-
     @Enumerated(EnumType.STRING)
     private Gender gender;
     private String status;
     private String designation;
-
     @Enumerated(EnumType.STRING)
-    private Role accessRole;
-
-    @Temporal(TemporalType.DATE)
-    private Date birthday;
-    @Temporal(TemporalType.DATE)
-    private Date joinDate;
+    private Role role;
+    private Date dob;
+    private Date joinedDate;
     private String branch;
-    private String contactNo;
-
-    @Column(unique = true)
-    private String email;
-
-    private String addressNoOrName;
+    private String addressNo;
     private String addressLane;
     private String addressCity;
     private String addressState;
     private String postalCode;
-
+    @Column(unique = true)
+    private String email;
+    private String phone;
     private String password;
+    private String guardianOrNominatedPerson;
+    private String emergencyContact;
 
-    private String emergencyContactPerson;
-    private String emergencyContactNumber;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        Set<GrantedAuthority> authorities = new HashSet<>();
+        authorities.add(new SimpleGrantedAuthority("ROLE_"+ role.name()));
+        return authorities;
+    }
 
-    @OneToMany(mappedBy = "employee" , cascade = CascadeType.ALL , fetch = FetchType.LAZY)
-    private List<Sales> saleList;
+    @Override
+    public String getUsername() {
+        return email;
+    }
 
-    @OneToMany(mappedBy = "employee" , cascade = CascadeType.ALL , fetch = FetchType.LAZY)
-    private List<Refund> refundList;
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 
 }

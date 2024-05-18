@@ -11,7 +11,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class EmployeeDTO {
+public class EmployeeDTO implements SuperDTO{
     private String employeeId;
     private String employeeName;
     private String contactNumber;

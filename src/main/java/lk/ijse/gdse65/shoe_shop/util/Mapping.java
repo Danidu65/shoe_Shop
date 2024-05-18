@@ -1,17 +1,17 @@
 package lk.ijse.gdse65.shoe_shop.util;
 
-import lk.ijse.gdse65.shoe_shop.dto.CustomerDTO;
-import lk.ijse.gdse65.shoe_shop.dto.EmployeeDTO;
-import lk.ijse.gdse65.shoe_shop.dto.SupplierDTO;
-import lk.ijse.gdse65.shoe_shop.entity.Customer;
-import lk.ijse.gdse65.shoe_shop.entity.Employee;
-import lk.ijse.gdse65.shoe_shop.entity.Supplier;
+import lk.ijse.gdse65.shoe_shop.dto.*;
+import lk.ijse.gdse65.shoe_shop.dto.ItemImage;
+import lk.ijse.gdse65.shoe_shop.entity.*;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -51,11 +51,8 @@ public class Mapping {
         return modelMapper.map(employee, EmployeeDTO.class);
 
     }
+    public Employee toEmployeeEntity(EmployeeDTO employeeDTO){return modelMapper.map(employeeDTO, Employee.class);}
 
-    public List<Employee> toEmployeeList(List<EmployeeDTO> employeeDTOList) {
-        return modelMapper.map(employeeDTOList, new TypeToken<ArrayList<Employee>>() {}.getType());
-
-    }
 
     public List<EmployeeDTO> toEmployeeDTOList(List<Employee> employeeList) {
         return modelMapper.map(employeeList, new TypeToken<ArrayList<EmployeeDTO>>() {}.getType());
@@ -82,5 +79,17 @@ public class Mapping {
         return modelMapper.map(supplierList, new TypeToken<ArrayList<SupplierDTO>>() {}.getType());
 
     }
+    public List<SupplierDTO> getSupplierDTOList(List<Supplier> supplierEntities){return modelMapper.map(supplierEntities, List.class);}
 
+    //String to date
+    public static Date convertToDate(String date){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date updatedDate = null;
+        try {
+            updatedDate = dateFormat.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return updatedDate;
+    }
 }
