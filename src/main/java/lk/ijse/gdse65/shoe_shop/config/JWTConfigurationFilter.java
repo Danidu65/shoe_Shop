@@ -8,6 +8,7 @@ import lk.ijse.gdse65.shoe_shop.service.UserService;
 import lk.ijse.gdse65.shoe_shop.service.secutiry.JWTService;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContext;

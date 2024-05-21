@@ -1,5 +1,6 @@
 package lk.ijse.gdse65.shoe_shop.contoller;
 
+import jakarta.validation.Valid;
 import lk.ijse.gdse65.shoe_shop.entity.enums.Gender;
 import lk.ijse.gdse65.shoe_shop.entity.enums.Role;
 import lk.ijse.gdse65.shoe_shop.reqAndResponse.response.JwtAuthResponse;
@@ -42,7 +43,7 @@ public class UserController {
     //signup
     @PostMapping(value = "/signup", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<JwtAuthResponse> saveUser(
-            @RequestPart("profilePic") MultipartFile profilePic,
+            @RequestPart("profilePic") MultipartFile profilePic,@Valid
                                                     @RequestPart("employeeCode")String employeeCode,
                                                     @RequestPart("name")String name,
                                                     @RequestPart("gender")String gender,

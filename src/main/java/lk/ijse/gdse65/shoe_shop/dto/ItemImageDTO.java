@@ -1,6 +1,5 @@
 package lk.ijse.gdse65.shoe_shop.dto;
 
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +7,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class ItemImage {
+public class ItemImageDTO {
     private String imageId;
     private String image;
 }

@@ -1,7 +1,6 @@
 package lk.ijse.gdse65.shoe_shop.util;
 
 import lk.ijse.gdse65.shoe_shop.dto.*;
-import lk.ijse.gdse65.shoe_shop.dto.ItemImage;
 import lk.ijse.gdse65.shoe_shop.entity.*;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -92,4 +91,29 @@ public class Mapping {
         }
         return updatedDate;
     }
+    //Item Mapping
+    public ItemDTO toItemDTO(Item item){
+        return modelMapper.map(item, ItemDTO.class);
+    }
+    public Item toItemEntity(ItemDTO itemDTO){
+        return modelMapper.map(itemDTO, Item.class);
+    }
+    public List<ItemDTO> getItemDTOList(List<Item> itemEntities){
+        return modelMapper.map(itemEntities, List.class);
+    }
+
+    //Item Image Mapping
+    public ItemImageDTO toItemImageDTO(ItemImage itemImage){
+        return modelMapper.map(itemImage, ItemImageDTO.class);
+    }
+    public ItemImage toItemImageEntity(ItemImageDTO itemImageDTO){return modelMapper.map(itemImageDTO, ItemImage.class);}
+    public List<ItemImageDTO> getItemImageDTOList(List<ItemImage> itemImageEntities){return modelMapper.map(itemImageEntities, List.class);}
+    //Alert Mapping
+    public AlertDTO toAlertDTO(Alert alert){
+        return modelMapper.map(alert, AlertDTO.class);
+    }
+    public Alert toAlertEntity(AlertDTO alertDTO){
+        return modelMapper.map(alertDTO, Alert.class);
+    }
+    public List<AlertDTO> getAlertDTOList(List<Alert> alertEntities){return modelMapper.map(alertEntities, List.class);}
 }
